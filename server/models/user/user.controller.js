@@ -48,23 +48,22 @@ module.exports = {
    });
  },
 
- login: (req, res) => {
-   console.log('pene');
-   passport.authenticate('local', function(err, user, info) {
-     console.log('pene2');
-      if (err) { return next(err); }
+ login: (req, res, next) => {
+   passport.authenticate('local', (err, user, failureDetails) => {
+     if (err)
+       return res.status(500).json({ message: 'Something went wrong' });
 
-      if (!user) { return res.status(401).json(info); }
+     if (!user)
+       return res.status(401).json(failureDetails);
 
-      req.login(user, function(err) {
-        if (err) {
-          return res.status(500).json({
-            message: 'something went wrong :('
-          });
-        }
-        res.status(200).json(req.user);
-      });
-    })(req, res, next);
+     req.login(user, (err) => {
+       if (err)
+         return res.status(500).json({ message: 'Something went wrong' });
+
+       // We are now logged in (notice req.user)
+       res.status(200).json(req.user);
+     });
+   })(req, res, next);
  },
 
  logout: (req, res) => {

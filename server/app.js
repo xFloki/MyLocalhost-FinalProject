@@ -18,6 +18,7 @@ mongoose.connect(db,{useMongoClient:true}).then(() =>{
   console.log("Connected to db: " + db);
 })
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -36,9 +37,9 @@ app.use(session({
 require('./config/passport')(app);
 
 app.use('/api', index);
-app.use('/api/house', apiFor(require('./models/house/house.model')));
+// app.use('/api/house', apiFor(require('./models/house/house.model')));
 app.use('/api/user', apiFor(require('./models/user/user.model')));
-app.use('/api/chore', apiFor(require('./models/task/task.model')));
+// app.use('/api/chore', apiFor(require('./models/task/task.model')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,7 +56,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  console.log(err);
+  res.status(500).json({ message: 'Error' });
 });
 
 module.exports = app;

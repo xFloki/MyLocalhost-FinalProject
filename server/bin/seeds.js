@@ -10,20 +10,21 @@ const Debt = require('../models/debt/debt.model');
 
 const bcryptSalt = 10;
 
-const salt = bcrypt.genSaltSync(bcryptSalt);
-const password = 'abcd';
-const encryptedPass = bcrypt.hashSync(password, salt);
+// const salt = bcrypt.genSaltSync(bcryptSalt);
+// const password = '1';
+const encryptedPass = '1';
 const db = 'mongodb://localhost/mylocalhost-project'
 
 console.log(db)
-mongoose.connect(db);
+mongoose.connect(db, () =>{
+  mongoose.connection.db.dropDatabase();
+});
 
-User.collection.drop();
-Task.collection.drop();
-House.collection.drop();
-ShopList.collection.drop();
-ShopPortion.collection.drop();
-Debt.collection.drop();
+
+//User.collection.drop();
+// Task.collection.drop();
+// House.collection.drop();
+
 
 const users = [
   {
@@ -121,24 +122,43 @@ const chores = [
     name: 'Vacuum curtains',
     description: 'Vacuum curtains',
     estimatedTime: 15
-  },
+  }
 ]
 
 const homes = [
   {
-    name: 'Vacuum curtains',
-    description: 'Vacuum curtains',
-    estimatedTime: 15
+    owner: '5a268f2ba0f20bd4971baaaa',
+    members: [
+      '5a268f2ba0f20bd4971baaaa',
+      '5a268f2ba0f20bd4971baaad',
+      '5a268f2ba0f20bd4971baaae'
+    ],
+    street: 'Pasea de la Chopera 14',
+    location: 'Madrid',
+    country: 'Spain',
   },
-]
+  {
+    owner: '5a268f2ba0f20bd4971baaaf',
+    members: [
+      '5a268f2ba0f20bd4971baaaf',
+      '5a268f2ba0f20bd4971baaab'
+    ],
+    street: 'Pasea de la Chopera 10',
+    location: 'Madriz',
+    country: 'Hispania'
+  }
+
+];
 
 
-User.create(users, (err, docs) => {
-      if (err) {
-        throw err;
-      }
-      console.log('Users Added');
-      mongoose.connection.close();
-    });
 
- // mongoose.connection.close();
+createUsers = User.create(users);
+createChores = Task.create(chores);
+createHomes = House.create(homes);
+
+Promise.all([createUsers,createChores,createHomes])
+  .then(e => {
+    console.log('Seeds added to the database');
+    mongoose.connection.close();
+  })
+  .catch(e => console.log(e));
