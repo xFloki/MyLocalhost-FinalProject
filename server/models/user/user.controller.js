@@ -40,11 +40,11 @@ module.exports = {
 
          res.status(200).json(req.user);
        });
-     })
+     });
    })
    .catch(e => {
      console.log(e);
-     res.status(400).json({ message: 'Something went wrong' })
+     res.status(400).json({ message: 'Something went wrong' });
    });
  },
 
@@ -72,6 +72,7 @@ module.exports = {
  },
 
  loggedIn: (req, res) => {
+   console.log(req.user);
    if (req.isAuthenticated())
      return res.status(200).json(req.user);
    res.status(403).json({ message: 'Unauthorized' });
