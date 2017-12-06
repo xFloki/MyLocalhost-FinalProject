@@ -7,7 +7,13 @@ const User = require('../models/user.model');
 
 const bcryptSalt = 10;
 
-mongoose.connect(process.env.DB_URL);
+const salt = bcrypt.genSaltSync(bcryptSalt);
+const password = 'abcd';
+const encryptedPass = bcrypt.hashSync(password, salt);
+const db = 'mongodb://localhost/mylocalhost-project'
+
+console.log(db)
+mongoose.connect(db);
 
 User.collection.drop();
 Task.collection.drop();
@@ -16,12 +22,14 @@ House.collection.drop();
 const users = [
   {
     username: '1',
+    name: '1',
     password: encryptedPass,
     email: '1@1.1',
     photo: 'https://ultimahora.es/sfAttachPlugin/getCachedContent/id/210418'
   },
   {
-    username: 'Antonio',
+    username: 'Anton',
+    name: 'Antonio',
     password: encryptedPass,
     email: 'pepe@hotmail.com',
     role: 'user',
@@ -29,6 +37,7 @@ const users = [
   },
   {
     username: 'Jaime',
+    name: 'Jaime',
     password: encryptedPass,
     email: 'james@hotmail.com',
     role: 'user',
@@ -36,6 +45,7 @@ const users = [
   },
   {
     username: 'xFloki',
+    name: 'Alejandro',
     password: encryptedPass,
     email: 'floki@hotmail.com',
     role: 'user',
@@ -43,6 +53,7 @@ const users = [
   },
   {
     username: 'pepito',
+    name: 'Pepe',
     password: encryptedPass,
     email: 'pepi@hotmail.com',
     role: 'user',
@@ -50,6 +61,7 @@ const users = [
   },
   {
     username: 'ramon86',
+    name: 'Ramon',
     password: encryptedPass,
     email: 'ram@hotmail.com',
     role: 'user',
@@ -57,4 +69,12 @@ const users = [
   }
 ];
 
- mongoose.connection.close();
+User.create(users, (err, docs) => {
+      if (err) {
+        throw err;
+      }
+      console.log('Users Added');
+      mongoose.connection.close();
+    });
+
+ // mongoose.connection.close();

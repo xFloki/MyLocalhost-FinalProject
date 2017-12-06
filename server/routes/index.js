@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
+const authRoutes = require("../models/user/index");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('YO DOG');
-});
+router.use('/auth', authRoutes);
 
 module.exports = router;

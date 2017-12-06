@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const houseSchema = new mongoose.Schema({
     Owner: {
-      type: type: { 
-        type: Schema.ObjectId,
-        ref: 'User'
+      type: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
       }
-      unique:true,
-      required: [true, 'Name is required']
     },
     members: {
         type: [{
-          type: Schema.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: 'User'
         }]
     },
@@ -30,6 +30,8 @@ const houseSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+
 
 const House = mongoose.model('House', houseSchema);
 
