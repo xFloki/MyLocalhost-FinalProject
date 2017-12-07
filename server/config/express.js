@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const cors = require('cors');
+const corsConfig = require('./cors.config');
 
 module.exports = function(app) {
 
@@ -20,6 +22,7 @@ mongoose.connect(db,{useMongoClient:true}).then(() =>{
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
