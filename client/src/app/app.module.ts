@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { TaskService } from './shared/services/task.service';
+import { WeekTaskService } from './shared/services/weektask.service';
 import { LoginComponent } from './components/login/login.component';
 import { TaskManagerComponent } from './components/task-manager/task-manager.component'
 
@@ -30,7 +31,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService,TaskService],
+  providers: [AuthService,TaskService,WeekTaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

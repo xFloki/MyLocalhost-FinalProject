@@ -2,6 +2,18 @@
   task-manager works!
 </p>
 
-<div class="" *ngFor="let task of tasks">
-  <p>{{task.name}}</p>
+<div class="tasks">
+  <div class="">
+    <div *ngFor="let task of tasks">
+      <p>{{task.name}}</p>
+      <button type="button" (click)="add(task._id)" name="button">Add</button>
+    </div>
+  </div>
+
+
+  <p>/////</p>
+
+  <div *ngFor="let task of weekTasks">
+    <p>{{task.name}}</p>
+  </div>
 </div>
