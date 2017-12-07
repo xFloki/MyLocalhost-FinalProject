@@ -3,18 +3,11 @@ const mongoose = require('mongoose');
 const portionSchema = new mongoose.Schema(
   {
     owner: {
-      type: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     },
-    products: {
-        type: [{
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Portion'
-        }]
-    },
+    products: [String],
     status: {
         type: Boolean,
         default: true

@@ -3,18 +3,14 @@ const mongoose = require('mongoose');
 const shopListSchema = new mongoose.Schema(
   {
     owner: {
-      type: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     },
-    products: {
-        type: [{
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Portion'
-        }]
-    },
+    products:  [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Portion'
+    }],
     status: {
         type: Boolean,
         default: true
