@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 import { AuthService } from './shared/services/auth.service';
 import { TaskService } from './shared/services/task.service';
 import { WeekTaskService } from './shared/services/weektask.service';
@@ -15,7 +16,7 @@ import { TaskManagerComponent } from './components/task-manager/task-manager.com
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'task', component: TaskManagerComponent },
+  { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: '**', redirectTo: '' }
 ];
 
@@ -31,7 +32,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService,TaskService,WeekTaskService],
+  providers: [AuthService,TaskService,WeekTaskService,IsAuthenticatedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
