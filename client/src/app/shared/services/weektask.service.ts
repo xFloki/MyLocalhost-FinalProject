@@ -19,8 +19,8 @@ export class WeekTaskService {
       .catch(this.handleError);
   }
 
-  addToUser(id): Observable<Task> {
-    return this.http.post(this.baseUrl +'/'+ id, this.options)
+  addToUser(id,userID): Observable<Task> {
+    return this.http.post(`${this.baseUrl}/assign/${id}/${userID}`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

@@ -12,7 +12,7 @@ export class AuthService {
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
 
-  private user: User;
+  public user: User;
   private userSubject: Subject<User>;
 
   constructor(private http: Http) {

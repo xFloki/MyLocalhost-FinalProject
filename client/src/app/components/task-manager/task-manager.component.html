@@ -12,8 +12,10 @@
 
 
   <p>/////</p>
+  <ul>
+    <li *ngFor="let t of weekTasks">
+      {{t.task.name}}
+    </li>
+  </ul>
 
-  <div *ngFor="let task of weekTasks">
-    <p>{{task.name}}</p>
-  </div>
 </div>
