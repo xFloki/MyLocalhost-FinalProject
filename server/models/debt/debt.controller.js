@@ -22,6 +22,14 @@ module.exports = {
       res.status(200).json(e);
     })
     .catch(err => res.status(500).json(err) );
+ },
+
+ confirmPayment: (req, res, next) => {
+   Debt.findByIdAndUpdate(req.params.id, { status: false })
+    .then(e =>  {
+      res.status(200).json(e);
+    })
+    .catch(err => res.status(500).json(err) );
  }
 
 };

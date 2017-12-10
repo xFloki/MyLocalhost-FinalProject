@@ -19,7 +19,13 @@ export class DebtService  {
   }
 
   getUserCreditorDebts(){
-    return this.http.get(this.baseUrl + '/getUserCreditorDebts', this.options)
+    return this.http.get(this.baseUrl + '/userCreditorDebts', this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  confirmPaypment(id){
+    return this.http.patch(this.baseUrl + '/confirmPayment/'+id, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

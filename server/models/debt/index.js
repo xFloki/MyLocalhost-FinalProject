@@ -5,6 +5,7 @@ const DebtController = require("./debt.controller");
 const debtRoutes = express.Router();
 
 debtRoutes.get('/getUserDebts', DebtController.getUserDebts);
-debtRoutes.get('/getUserCreditorDebts', DebtController.getUserCreditorDebts);
+debtRoutes.get('/userCreditorDebts', DebtController.getUserCreditorDebts);
+debtRoutes.patch('/confirmPayment/:id', DebtController.confirmPayment);
 
 module.exports = debtRoutes;

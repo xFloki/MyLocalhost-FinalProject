@@ -27,12 +27,14 @@
   </div>
   <div class="to-be-payed">
     <div class="" *ngFor="let debt of toBePayedDebts">
-      <p>{{debt.quantity}} €</p>
-      <p>{{debt.debtor.username}}</p>
-      <p>{{debt.createdAt}}</p>
-      <a href="#" class="btn btn-default">
-        <span class="glyphicon glyphicon-ok-circle"></span>
-      </a>
+      <div class="" *ngIf="debt.status">
+        <p>{{debt.quantity}} €</p>
+        <p>{{debt.debtor.username}}</p>
+        <p>{{debt.createdAt}}</p>
+        <a class="btn btn-default">
+          <span (click)="confirmPaid(debt)" class="glyphicon glyphicon-ok-circle"></span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

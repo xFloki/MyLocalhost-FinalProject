@@ -42,10 +42,21 @@ export class DebtsComponent implements OnInit {
         this.toBePayedDebts = debts
       }
     );
+
   }
 
   calculateBalance(){
     this.balance = this.toBePayed - this.toPay;
+  }
+
+  confirmPaid(debt){
+    this.debtService.confirmPaypment(debt._id).subscribe(
+      () => {
+          this.toBePayedDebts[this.toBePayedDebts.indexOf(debt)].status = false;
+          console.log(this.toBePayedDebts);
+      }
+    )
+
   }
 
 }
