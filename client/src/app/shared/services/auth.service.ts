@@ -8,7 +8,7 @@ const CURRENT_USER_KEY = 'currentUser';
 
 @Injectable()
 export class AuthService {
-  private baseUrl = `${environment.apiUrl}/api/auth/login`;
+  private baseUrl = `${environment.apiUrl}/api/auth`;
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
 
@@ -21,6 +21,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
+    console.log(this.user)
     return this.user !== null && this.user !== undefined;
   }
 
@@ -29,11 +30,21 @@ export class AuthService {
   }
 
   authenticate(user: User): Observable<User> {
-    return this.http.post(this.baseUrl, JSON.stringify(user), this.options)
+    return this.http.post(`${this.baseUrl}/login`, JSON.stringify(user), this.options)
       .map(res => {
         return this.doAuthentication(res.json());
       })
       .catch(this.handleError);
+  }
+
+  logout() {
+    return this.http.get(`${this.baseUrl}/logout`, this.options)
+        .map(res => {
+          this.user = null;
+          localStorage.clear();
+          return res.json();
+        })
+        .catch(this.handleError);
   }
 
   private doAuthentication(user: User): User {

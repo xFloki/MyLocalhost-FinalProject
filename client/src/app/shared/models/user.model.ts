@@ -1,6 +1,7 @@
 export class User {
-    id:string;
+    username:string;
     name: string;
-    description: string;
-    estimatedTime: number;
+    email: string;
+    password: string;
+    photoUrl: string;
 }

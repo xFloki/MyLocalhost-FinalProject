@@ -13,9 +13,9 @@ const bcryptSalt = 10;
 // const salt = bcrypt.genSaltSync(bcryptSalt);
 // const password = '1';
 const encryptedPass = '1';
-const db = 'mongodb://localhost/mylocalhost-project'
+const db = 'mongodb://localhost/mylocalhost-project';
 
-console.log(db)
+console.log(db);
 mongoose.connect(db, () =>{
   mongoose.connection.db.dropDatabase();
 });
@@ -123,7 +123,7 @@ const chores = [
     description: 'Vacuum curtains',
     estimatedTime: 15
   }
-]
+];
 
 const homes = [
   {

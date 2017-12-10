@@ -1,0 +1,24 @@
+<form (ngSubmit)="signUp(newUser)" #loginForm="ngForm">
+  <fieldset>
+    <legend>Register</legend>
+    <div>
+      <label for="email">Username:</label>
+      <input type="text" name="email" [(ngModel)]="newUser.username" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="newUser.password" required>
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" [(ngModel)]="newUser.name" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" [(ngModel)]="newUser.email" required>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Register</button>
+    <a [routerLink]="['/login']">Already Have Account</a>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </fieldset>
+</form>

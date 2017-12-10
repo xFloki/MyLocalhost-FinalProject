@@ -1,6 +1,5 @@
 const passport = require("passport");
 const User = require('./user.model');
-const bcrypt = require('bcrypt');
 const path = require('path');
 const debug = require('debug')("angularauth:" + path.basename(__filename).split('.')[0]);
 const _ = require('lodash');
@@ -8,10 +7,16 @@ const _ = require('lodash');
 module.exports = {
 
  signup: (req, res, next) => {
-   console.log(req.body);
+   console.log('WTF');
+  console.log(req.body.username);
+  console.log(req.body.name);
+  console.log(req.body.password);
+  console.log(req.body.email);
+  console.log(req.body.photo);
+  console.log(req.body);
    const { username, name, password, email, photo } = req.body;
 
-   if (!username || !password || !name || !email || !photo )
+   if (!username || !password || !name || !email )
    return res.status(400).json({ message: 'Provide all necessary fields' });
 
    //debug('Find user in DB');
@@ -20,13 +25,11 @@ module.exports = {
      if(user)
        return res.status(400).json({ message: 'The username already exists' });
     console.log('Flama 3');
-     const salt = bcrypt.genSaltSync(10);
-     const hashPass = bcrypt.hashSync(password, salt);
      debug('creatding user');
      const theUser = new User({
        username,
        name,
-       password: hashPass,
+       password,
        email,
        photo
      });

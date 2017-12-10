@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from './../../shared/services/task.service';
 import { WeekTaskService } from './../../shared/services/weektask.service';
 import { AuthService } from './../../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-manager',
@@ -15,7 +16,8 @@ export class TaskManagerComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private weekTaskService: WeekTaskService,
-    private authService: AuthService  ) { }
+    private authService: AuthService,
+    private router: Router   ) { }
 
   ngOnInit() {
     this.taskService.list().subscribe(
@@ -36,8 +38,21 @@ export class TaskManagerComponent implements OnInit {
     );
   }
 
+  logout(){
+    this.authService.logout().subscribe(
+      (e) => {
+        console.log('8======D');
+        console.log(this.authService.isAuthenticated());
+        console.log(this.authService.user);
+        this.router.navigate(['/login'])
+      } ,
+      (error) => this.error = error.message
+    );
+  }
+
+
   add(id) {
-    this.weekTaskService.addToUser(id,this.authService.user.id).subscribe(
+    this.weekTaskService.addToUser(id).subscribe(
       (e) => this.listByUser(),
       (error) => this.error = error.message
     );

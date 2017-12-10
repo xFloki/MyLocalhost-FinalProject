@@ -10,6 +10,7 @@
       <input type="password" name="password" [(ngModel)]="user.password" required>
     </div>
     <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <a [routerLink]="['/register']">Not Account Yet?</a>
     <p class="error" *ngIf="error">{{ error }}</p>
   </fieldset>
 </form>

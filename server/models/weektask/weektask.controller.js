@@ -19,7 +19,7 @@ module.exports = {
  },
 
  assign: (req, res, next) => {
-   let id = req.params.userID;
+   let id = req.user._id;
    let taskId = req.params.id;
    const newWeekTask = new WeekTask ({
       assigned: id,

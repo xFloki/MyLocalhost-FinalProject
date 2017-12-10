@@ -5,6 +5,6 @@ const TaskController = require("./weektask.controller");
 const weekTaskRoutes = express.Router();
 
 weekTaskRoutes.get('/current', TaskController.list);
-weekTaskRoutes.post('/assign/:id/:userID', TaskController.assign);
+weekTaskRoutes.post('/assign/:id', TaskController.assign);
 
 module.exports = weekTaskRoutes;

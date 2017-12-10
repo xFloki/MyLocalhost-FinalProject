@@ -20,7 +20,7 @@ export class TaskService {
   }
 
   protected handleError(error: Response | any): Observable<any> {
-  console.error(error);
+    console.error(error);
   return Observable.throw(error.json());
 }
 
