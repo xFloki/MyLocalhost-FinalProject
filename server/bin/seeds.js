@@ -33,7 +33,7 @@ const users = [
     name: '1',
     password: encryptedPass,
     email: '1@1.1',
-    photo: 'https://ultimahora.es/sfAttachPlugin/getCachedContent/id/210418'
+    photoUrl: 'https://ultimahora.es/sfAttachPlugin/getCachedContent/id/210418'
   },
   {
     _id : '5a268f2ba0f20bd4971baaaf',
@@ -42,7 +42,7 @@ const users = [
     password: encryptedPass,
     email: 'pepe@hotmail.com',
     role: 'user',
-    photo: 'https://sports-images.vice.com/images/2016/09/28/edu-marn-el-escalador-que-toc-el-cielo-tras-hundirse-en-el-pozo-body-image-1475080020.jpg'
+    photoUrl: 'https://sports-images.vice.com/images/2016/09/28/edu-marn-el-escalador-que-toc-el-cielo-tras-hundirse-en-el-pozo-body-image-1475080020.jpg'
   },
   {
     _id : '5a268f2ba0f20bd4971baaae',
@@ -51,7 +51,7 @@ const users = [
     password: encryptedPass,
     email: 'james@hotmail.com',
     role: 'user',
-    photo: 'http://alpenglowcollective.co/wp-content/uploads/2016/05/oliviafeatured.jpg'
+    photoUrl: 'http://alpenglowcollective.co/wp-content/uploads/2016/05/oliviafeatured.jpg'
   },
   {
     _id : '5a268f2ba0f20bd4971baaad',
@@ -60,7 +60,7 @@ const users = [
     password: encryptedPass,
     email: 'floki@hotmail.com',
     role: 'user',
-    photo: 'http://i.imgur.com/lhj7o4a.png'
+    photoUrl: 'http://i.imgur.com/lhj7o4a.png'
   },
   {
     _id : '5a268f2ba0f20bd4971baaac',
@@ -69,7 +69,7 @@ const users = [
     password: encryptedPass,
     email: 'pepi@hotmail.com',
     role: 'user',
-    photo: 'https://climbingaway.fr/photos_grimpeurs/298/smart/klemen_becanw.jpg'
+    photoUrl: 'https://climbingaway.fr/photos_grimpeurs/298/smart/klemen_becanw.jpg'
   },
   {
     _id : '5a268f2ba0f20bd4971baaab',
@@ -78,7 +78,7 @@ const users = [
     password: encryptedPass,
     email: 'ram@hotmail.com',
     role: 'user',
-    photo: 'https://avatarfiles.alphacoders.com/104/104391.png'
+    photoUrl: 'https://avatarfiles.alphacoders.com/104/104391.png'
   }
 ];
 

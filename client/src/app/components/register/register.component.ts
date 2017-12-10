@@ -23,12 +23,11 @@ export class RegisterComponent implements OnInit {
     password: '',
     name: '',
     email: '',
-    photo:''
+    photoUrl:''
   }
 
   ngOnInit() {
   }
-
 
   signUp(){
     console.log('FRONT --->');

@@ -14,7 +14,9 @@ import { LoginComponent } from './components/login/login.component';
 import { TaskManagerComponent } from './components/task-manager/task-manager.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { NavigationComponent } from './components/navigation/navigation.component'
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { DebtsComponent } from './components/debts/debts.component';
+import { ShoplistComponent } from './components/shoplist/shoplist.component'
 
 
 const routes: Routes = [
@@ -33,7 +35,9 @@ const routes: Routes = [
     TaskManagerComponent,
     RegisterComponent,
     ProfileComponent,
-    NavigationComponent
+    NavigationComponent,
+    DebtsComponent,
+    ShoplistComponent
   ],
   imports: [
     BrowserModule,
