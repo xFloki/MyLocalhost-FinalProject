@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]  },
+  { path: 'shoplist', component: ShoplistComponent, canActivate: [IsAuthenticatedGuard]  },
+  { path: 'debts', component: DebtsComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: '**', redirectTo: '' }
 ];
 
