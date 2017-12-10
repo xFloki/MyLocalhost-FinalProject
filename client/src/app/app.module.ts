@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
+  { path: 'profile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: '**', redirectTo: '' }
 ];
 
