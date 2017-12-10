@@ -8,10 +8,6 @@ const ShopList = require('../models/shoplist/shoplist.model');
 const ShopPortion = require('../models/shoplist/portion/portion.model');
 const Debt = require('../models/debt/debt.model');
 
-const bcryptSalt = 10;
-
-// const salt = bcrypt.genSaltSync(bcryptSalt);
-// const password = '1';
 const encryptedPass = '1';
 const db = 'mongodb://localhost/mylocalhost-project';
 
@@ -19,12 +15,6 @@ console.log(db);
 mongoose.connect(db, () =>{
   mongoose.connection.db.dropDatabase();
 });
-
-
-//User.collection.drop();
-// Task.collection.drop();
-// House.collection.drop();
-
 
 const users = [
   {
@@ -151,12 +141,60 @@ const homes = [
 ];
 
 
+const debts = [
+  {
+    debtor: '5a268f2ba0f20bd4971baaad',
+    creditor: '5a268f2ba0f20bd4971baaaa',
+    quantity: 50,
+    reason: 'Skins del Lol',
+    status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaad',
+    creditor: '5a268f2ba0f20bd4971baaaa',
+    quantity: 20,
+    reason: 'Gasolina',
+    status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaad',
+    creditor: '5a268f2ba0f20bd4971baaaf',
+    quantity: 5,
+    reason: 'Durum',
+    status:  false
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaad',
+    creditor: '5a268f2ba0f20bd4971baaac',
+    quantity: 15,
+    reason: 'Telepi',
+    status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaad',
+    creditor: '5a268f2ba0f20bd4971baaae',
+    quantity: 10,
+    reason: 'Cervezas',
+    status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaaa',
+    creditor: '5a268f2ba0f20bd4971baaac',
+    quantity: 1.50,
+    reason: 'Viaje metro',
+    status:  true
+  }
+];
+
+
+
 
 createUsers = User.create(users);
 createChores = Task.create(chores);
 createHomes = House.create(homes);
+createDebts = Debt.create(debts);
 
-Promise.all([createUsers,createChores,createHomes])
+Promise.all([createUsers,createChores,createHomes,createDebts])
   .then(e => {
     console.log('Seeds added to the database');
     mongoose.connection.close();

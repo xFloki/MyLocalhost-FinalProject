@@ -11,5 +11,6 @@ app.use('/api/choreWeek', apiFor(require('../models/weektask/weektask.model')));
 app.use('/api/house', apiFor(require('../models/house/house.model')));
 app.use('/api/shoplist', apiFor(require('../models/shoplist/shoplist.model')));
 app.use('/api/shoplist/portion', apiFor(require('../models/shoplist/portion/portion.model')));
+app.use('/api/debt', require("../models/debt/index"));
 
 };

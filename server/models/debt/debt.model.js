@@ -3,18 +3,14 @@ const mongoose = require('mongoose');
 const debtSchema = new mongoose.Schema(
   {
     debtor: {
-      type: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      }
     },
     creditor: {
-      type: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-      }
     },
     quantity: {
         type: Number,

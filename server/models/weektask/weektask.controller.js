@@ -1,8 +1,5 @@
-const passport = require("passport");
-const bcrypt = require('bcrypt');
 const path = require('path');
 const debug = require('debug')("angularauth:" + path.basename(__filename).split('.')[0]);
-const _ = require('lodash');
 const WeekTask = require('./weektask.model');
 
 module.exports = {
