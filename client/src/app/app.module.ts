@@ -12,7 +12,9 @@ import { TaskService } from './shared/services/task.service';
 import { WeekTaskService } from './shared/services/weektask.service';
 import { LoginComponent } from './components/login/login.component';
 import { TaskManagerComponent } from './components/task-manager/task-manager.component';
-import { RegisterComponent } from './components/register/register.component'
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NavigationComponent } from './components/navigation/navigation.component'
 
 
 const routes: Routes = [
@@ -28,7 +30,9 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     TaskManagerComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
