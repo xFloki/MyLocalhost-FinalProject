@@ -5,8 +5,19 @@ const Debt = require('./debt.model');
 module.exports = {
 
  getUserDebts: (req, res, next) => {
-   let id = req.user._id;
-   Debt.find({ debtor: req.user }).populate('creditor','username')
+   Debt.find({ debtor: req.user })
+    .populate('creditor','username')
+    .populate('debtor','username')
+    .then(e => {
+      res.status(200).json(e);
+    })
+    .catch(err => res.status(500).json(err) );
+ },
+
+ getUserCreditorDebts: (req, res, next) => {
+   Debt.find({ creditor: req.user })
+    .populate('creditor','username')
+    .populate('debtor','username')
     .then(e => {
       res.status(200).json(e);
     })

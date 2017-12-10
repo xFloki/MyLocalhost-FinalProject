@@ -1,3 +1,38 @@
-<p>
-  debts works!
-</p>
+<div class="debt-header">
+  <div style="margin: 0 20px; 0 0">
+    To pay:
+    <p>{{toPay}}</p>
+  </div>
+  <div class="balance">
+    Balance:
+    <p>{{balance}}</p>
+  </div>
+  <div style="margin: 0 0 0 20px;">
+    To be Payed:
+    <p>{{toBePayed}}</p>
+  </div>
+</div>
+<div class="content">
+  <div class="to-pay">
+    <div class="" *ngFor="let debt of activeDebts">
+      <p>{{debt.quantity}} €</p>
+      <p>{{debt.creditor.username}}</p>
+      <p>{{debt.createdAt}}</p>
+    </div>
+    <div class="old-debts" *ngFor="let debt of oldDebts">
+      <p>{{debt.quantity}} €</p>
+      <p>{{debt.creditor.username}}</p>
+      <p>{{debt.createdAt}}</p>
+    </div>
+  </div>
+  <div class="to-be-payed">
+    <div class="" *ngFor="let debt of toBePayedDebts">
+      <p>{{debt.quantity}} €</p>
+      <p>{{debt.debtor.username}}</p>
+      <p>{{debt.createdAt}}</p>
+      <a href="#" class="btn btn-default">
+        <span class="glyphicon glyphicon-ok-circle"></span>
+      </a>
+    </div>
+  </div>
+</div>

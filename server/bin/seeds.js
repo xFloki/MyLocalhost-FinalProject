@@ -183,9 +183,22 @@ const debts = [
     quantity: 1.50,
     reason: 'Viaje metro',
     status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaac',
+    creditor: '5a268f2ba0f20bd4971baaad',
+    quantity: 1.50,
+    reason: 'Tabaco',
+    status:  true
+  },
+  {
+    debtor: '5a268f2ba0f20bd4971baaaa',
+    creditor: '5a268f2ba0f20bd4971baaad',
+    quantity: 1.50,
+    reason: 'Parque de Atracciones',
+    status:  true
   }
 ];
-
 
 
 

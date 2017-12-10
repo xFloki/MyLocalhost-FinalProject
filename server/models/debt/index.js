@@ -5,5 +5,6 @@ const DebtController = require("./debt.controller");
 const debtRoutes = express.Router();
 
 debtRoutes.get('/getUserDebts', DebtController.getUserDebts);
+debtRoutes.get('/getUserCreditorDebts', DebtController.getUserCreditorDebts);
 
 module.exports = debtRoutes;

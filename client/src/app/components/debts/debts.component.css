@@ -1,0 +1,27 @@
+.debt-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.to-pay, .to-be-payed {
+  margin: 0 100px 0 100px;
+}
+
+.old-debts {
+  color: grey;
+}
+
+span {
+  color: green;
+}
