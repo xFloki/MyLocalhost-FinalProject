@@ -13,5 +13,6 @@ app.use('/api/shoplist', apiFor(require('../models/shoplist/shoplist.model')));
 app.use('/api/shoplist/portion', apiFor(require('../models/shoplist/portion/portion.model')));
 app.use('/api/debt', require("../models/debt/index"));
 app.use('/api/debt/debt', apiFor(require('../models/debt/debt.model')));
+app.use('/api/scrape', require('../models/scrape/scrape'));
 
 };
