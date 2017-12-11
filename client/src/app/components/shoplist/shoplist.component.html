@@ -1,1 +1,10 @@
 <a [routerLink]="['new']">Register</a>
+<button (click)="addNewShopList()" name="button">Create ShopList</button>
+
+<br><hr>
+<div class="" *ngFor="let shoplist of shoplists">
+  <p>Fecha de creacion: {{shoplist.createdAt}}</p>
+  <p>Creada por: {{shoplist.owner.username}}         Total Price: {{shoplist.totalPrice}}</p>
+  <a [routerLink]="['/shoplist', shoplist._id]">Sow more</a>
+  <hr>
+</div>

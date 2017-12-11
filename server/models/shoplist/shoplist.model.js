@@ -9,7 +9,8 @@ const shopListSchema = new mongoose.Schema(
     },
     products:  [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Portion'
+      ref: 'Portion',
+      default: []
     }],
     status: {
         type: Boolean,

@@ -1,0 +1,12 @@
+<div class="" *ngIf="shopList">
+  <p>Creador: {{shopList.owner.username}}</p>
+  <p>Created At: {{shopList.createdAt}}</p>
+  <div class="" *ngFor="let portion of shopList.products">
+    <div class="">
+      <p>{{portion.owner.username}}</p>
+      <ul>
+        <li *ngFor="let product of portion.products">{{product}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

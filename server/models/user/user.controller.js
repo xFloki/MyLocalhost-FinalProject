@@ -7,13 +7,6 @@ const _ = require('lodash');
 module.exports = {
 
  signup: (req, res, next) => {
-   console.log('WTF');
-  console.log(req.body.username);
-  console.log(req.body.name);
-  console.log(req.body.password);
-  console.log(req.body.email);
-  console.log(req.body.photo);
-  console.log(req.body);
    const { username, name, password, email, photo } = req.body;
 
    if (!username || !password || !name || !email )
@@ -24,7 +17,6 @@ module.exports = {
    User.findOne({ username },'_id').exec().then(user =>{
      if(user)
        return res.status(400).json({ message: 'The username already exists' });
-    console.log('Flama 3');
      debug('creatding user');
      const theUser = new User({
        username,
@@ -33,10 +25,8 @@ module.exports = {
        email,
        photo
      });
-     console.log('Flama 2');
      return theUser.save()
      .then(user =>{
-       console.log('Flama 1');
        req.login(user, (err) => {
          if (err)
            return res.status(500).json({ message: 'Something went wrong' });

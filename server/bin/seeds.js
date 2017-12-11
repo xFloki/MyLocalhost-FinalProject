@@ -200,14 +200,57 @@ const debts = [
   }
 ];
 
+const shopListPortions = [
+  {
+    _id: '5a2eae872c1be9407c4e42ca',
+    owner: '5a268f2ba0f20bd4971baaae',
+    products: ['Agua', 'Leche', 'Arroz', 'Salmon']
+  },
+  {
+    _id: '5a2eae872c1be9407c4e42c9',
+    owner: '5a268f2ba0f20bd4971baaac',
+    products: ['Empanada', 'Chocolate', 'Lemons', 'Sugar']
+  },
+  {
+    _id: '5a2eae872c1be9407c4e42c8',
+    owner: '5a268f2ba0f20bd4971baaad',
+    products: ['Garlic Bread', 'Pizza']
+  },
+  {
+    _id: '5a2eae872c1be9407c4e42cb',
+    owner: '5a268f2ba0f20bd4971baaad'
+  }
+];
+
+const shopLists = [
+  {
+    owner: '5a268f2ba0f20bd4971baaaa',
+    products: [
+      '5a2eae872c1be9407c4e42ca',
+      '5a2eae872c1be9407c4e42c9'
+    ]
+  },
+  {
+    owner: '5a268f2ba0f20bd4971baaae',
+    products: ['5a2eae872c1be9407c4e42c8']
+  },
+  {
+    owner: '5a268f2ba0f20bd4971baaad',
+    products: ['5a2eae872c1be9407c4e42cb']
+  }
+];
+
 
 
 createUsers = User.create(users);
 createChores = Task.create(chores);
 createHomes = House.create(homes);
 createDebts = Debt.create(debts);
+createShopListPortions = ShopPortion.create(shopListPortions);
+createShopLists = ShopList.create(shopLists);
 
-Promise.all([createUsers,createChores,createHomes,createDebts])
+Promise.all([createUsers,createChores,createHomes,createDebts,
+   createShopListPortions, createShopLists])
   .then(e => {
     console.log('Seeds added to the database');
     mongoose.connection.close();

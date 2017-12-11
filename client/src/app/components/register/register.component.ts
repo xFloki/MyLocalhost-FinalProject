@@ -30,8 +30,6 @@ export class RegisterComponent implements OnInit {
   }
 
   signUp(){
-    console.log('FRONT --->');
-    console.log(this.newUser);
     this.userService.signup(this.newUser).subscribe(
       (e) => {
         let user = new User();

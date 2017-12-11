@@ -10,7 +10,7 @@ const portionSchema = new mongoose.Schema(
     products: [String],
     status: {
         type: Boolean,
-        default: true
+        default: false
     },
     totalPrice: {
         type: Number,

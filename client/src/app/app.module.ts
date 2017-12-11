@@ -11,7 +11,7 @@ import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
 import { TaskService } from './shared/services/task.service';
 import { WeekTaskService } from './shared/services/weektask.service';
-import { DebtService } from './shared/services/debt.service';ShoplistService
+import { DebtService } from './shared/services/debt.service';
 import { ShoplistService } from './shared/services/shoplist.service';
 
 import { LoginComponent } from './components/login/login.component';
@@ -21,7 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DebtsComponent } from './components/debts/debts.component';
 import { ShoplistComponent } from './components/shoplist/shoplist.component';
-import { NewShoplistComponent } from './components/shoplist/new-shoplist/new-shoplist.component'
+import { PortionComponent } from './components/shoplist/portion/portion.component';
 
 
 const routes: Routes = [
@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]  },
-  { path: 'shoplist/new', component: NewShoplistComponent, canActivate: [IsAuthenticatedGuard] },
+  { path: 'shoplist/:id', component: PortionComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'shoplist', component: ShoplistComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'debts', component: DebtsComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: '**', redirectTo: '' }
@@ -46,7 +46,7 @@ const routes: Routes = [
     NavigationComponent,
     DebtsComponent,
     ShoplistComponent,
-    NewShoplistComponent
+    PortionComponent,
   ],
   imports: [
     BrowserModule,
