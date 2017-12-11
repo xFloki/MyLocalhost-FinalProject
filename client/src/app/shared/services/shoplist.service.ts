@@ -25,11 +25,29 @@ export class ShoplistService {
   }
 
   showShopList(id){
-    console.log(id)
     return this.http.get(this.baseUrl + '/' + id, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  findProduct(product){
+    return this.http.get(`${environment.apiUrl}/api/scrape/getProduct/${product}`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  updatePortion(id, prod){
+    return this.http.patch(this.baseUrl + '/portion/' + id, { prod:prod }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  createPortion(shoplist,prod){
+    return this.http.post(this.baseUrl + '/portion' , { prod:prod, shoplist:shoplist }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());

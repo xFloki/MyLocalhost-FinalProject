@@ -1,6 +1,13 @@
 <div class="" *ngIf="shopList">
   <p>Creador: {{shopList.owner.username}}</p>
   <p>Created At: {{shopList.createdAt}}</p>
+  <input type="text" name="" [(ngModel)]="product">
+   <button (click)="searchProduct()" name="button">Search Product</button>
+  <div class="" *ngIf="products">
+    <div class="products" *ngFor="let prod of products; let i = index">
+      <p>{{prod.name}}  {{prod.price}} €  <button (click)="addToPortion(prod)">ADD</button></p>
+    </div>
+  </div>
   <div class="" *ngFor="let portion of shopList.products">
     <div class="">
       <p>{{portion.owner.username}}</p>
