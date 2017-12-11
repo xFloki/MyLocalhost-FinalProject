@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoplistService } from './../../shared/services/shoplist.service';
 
 @Component({
   selector: 'app-shoplist',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoplistComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private shoplistService: ShoplistService
+  ) { }
 
   ngOnInit() {
   }
