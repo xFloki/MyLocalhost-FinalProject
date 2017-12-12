@@ -8,5 +8,6 @@ authRoutes.post('/signup', AuthController.signup);
 authRoutes.post('/login', AuthController.login);
 authRoutes.get('/logout', AuthController.logout);
 authRoutes.get('/loggedin', AuthController.loggedIn);
+authRoutes.patch('/not-homeless', AuthController.stopBeingHomeless);
 
 module.exports = authRoutes;

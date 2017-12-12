@@ -20,8 +20,6 @@ export class AuthService {
     this.userSubject = new Subject<User>();
   }
 
-
-
   isAuthenticated() {
     console.log(this.user)
     return this.user !== null && this.user !== undefined;

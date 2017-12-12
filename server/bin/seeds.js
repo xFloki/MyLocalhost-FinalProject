@@ -7,6 +7,7 @@ const User = require('../models/user/user.model');
 const ShopList = require('../models/shoplist/shoplist.model');
 const ShopPortion = require('../models/shoplist/portion/portion.model');
 const Debt = require('../models/debt/debt.model');
+const HouseInvitation = require('../models/house/house-invitation/house-invitation.model');
 
 const encryptedPass = '1';
 const db = 'mongodb://localhost/mylocalhost-project';
@@ -122,6 +123,7 @@ const chores = [
 
 const homes = [
   {
+    _id: "5a3000b10db40758c0501d9b",
     owner: '5a268f2ba0f20bd4971baaaa',
     members: [
       '5a268f2ba0f20bd4971baaaa',
@@ -245,6 +247,12 @@ const shopLists = [
   }
 ];
 
+const houseInvitations = [
+  {
+    house: '5a3000b10db40758c0501d9b',
+    destination: '5a268f2ba0f20bd4971baaac'
+  }
+];
 
 
 createUsers = User.create(users);
@@ -253,9 +261,10 @@ createHomes = House.create(homes);
 createDebts = Debt.create(debts);
 createShopListPortions = ShopPortion.create(shopListPortions);
 createShopLists = ShopList.create(shopLists);
+createHouseInvitations = HouseInvitation.create(houseInvitations);
 
 Promise.all([createUsers,createChores,createHomes,createDebts,
-   createShopListPortions, createShopLists])
+   createShopListPortions, createShopLists, createHouseInvitations])
   .then(e => {
     console.log('Seeds added to the database');
     mongoose.connection.close();

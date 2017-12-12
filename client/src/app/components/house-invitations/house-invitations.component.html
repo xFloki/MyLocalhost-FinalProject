@@ -1,3 +1,9 @@
 <p>
   house-invitations works!
 </p>
+
+<div class="" *ngFor="let inv of invitations">
+  <p>{{inv.house.owner.username}}</p>
+  <p>{{inv.house.street}}</p>
+  <button (click)="acceptInvitation()" name="button">Accept</button>
+</div>

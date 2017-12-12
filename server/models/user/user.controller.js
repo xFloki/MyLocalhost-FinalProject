@@ -59,6 +59,11 @@ module.exports = {
    })(req, res, next);
  },
 
+ stopBeingHomeless: (req, res, next) => {
+   User.findByIdAndUpdate(req.user._id, { homeless:false }, { new: true })
+    .then((result) =>  res.status(200).json(result));
+ },
+
  logout: (req, res) => {
    req.logout();
    res.status(200).json({ message: 'Success' });

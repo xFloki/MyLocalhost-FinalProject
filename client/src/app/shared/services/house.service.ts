@@ -18,6 +18,18 @@ export class HouseService {
       .catch(this.handleError);
   }
 
+  userInvitations(){
+    return this.http.get(this.baseUrl + '/invitation/current', this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  removeInvitations(){
+    return this.http.delete(this.baseUrl + '/invitation/all', this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());
   }

@@ -7,7 +7,6 @@ const houseSchema = new mongoose.Schema({
       required: true
     },
     members: [{
-
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }],
