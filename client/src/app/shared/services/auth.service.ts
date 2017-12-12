@@ -1,6 +1,6 @@
 import { User } from './../models/user.model';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
 import { environment } from '../../../environments/environment';
 
@@ -19,6 +19,8 @@ export class AuthService {
     this.user = JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
     this.userSubject = new Subject<User>();
   }
+
+
 
   isAuthenticated() {
     console.log(this.user)

@@ -19,6 +19,12 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  notHomeless(){
+    return this.http.patch(`${environment.apiUrl}/api/auth/not-homeless`, { } , this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   protected handleError(error: Response | any): Observable<any> {
     console.error(error);
   return Observable.throw(error.json());

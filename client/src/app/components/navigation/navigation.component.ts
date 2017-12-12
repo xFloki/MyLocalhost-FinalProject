@@ -9,15 +9,16 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  show;
-
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.show = this.authService.isAuthenticated()
+    console.log('8=====D')
+    //this.user = this.authService.user;
+    //this.authService.loginEvent.subscribe(user => this.user = user)
+    console.log('///')
   }
 
 }

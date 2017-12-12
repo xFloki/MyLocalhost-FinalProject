@@ -13,6 +13,7 @@ import { TaskService } from './shared/services/task.service';
 import { WeekTaskService } from './shared/services/weektask.service';
 import { DebtService } from './shared/services/debt.service';
 import { ShoplistService } from './shared/services/shoplist.service';
+import { HouseService } from './shared/services/house.service';
 
 import { LoginComponent } from './components/login/login.component';
 import { TaskManagerComponent } from './components/task-manager/task-manager.component';
@@ -22,12 +23,16 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DebtsComponent } from './components/debts/debts.component';
 import { ShoplistComponent } from './components/shoplist/shoplist.component';
 import { PortionComponent } from './components/shoplist/portion/portion.component';
+import { HouseInvitationsComponent } from './components/house-invitations/house-invitations.component';
+import { HouseCreatorComponent } from './components/house-creator/house-creator.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'house-creator', component: HouseCreatorComponent, canActivate: [IsAuthenticatedGuard]  },
+  { path: 'house-invitations', component: HouseInvitationsComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'shoplist/:id', component: PortionComponent, canActivate: [IsAuthenticatedGuard] },
@@ -47,6 +52,8 @@ const routes: Routes = [
     DebtsComponent,
     ShoplistComponent,
     PortionComponent,
+    HouseInvitationsComponent,
+    HouseCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,8 @@ const routes: Routes = [
     IsAuthenticatedGuard,
     UserService,
     DebtService,
-    ShoplistService
+    ShoplistService,
+    HouseService
   ],
   bootstrap: [AppComponent]
 })

@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
         this.authService.authenticate(user).subscribe(
           (user) => {
             console.log(user);
-            this.router.navigate(['/task']);
+            this.router.navigate(['/house-creator']);
           }
         )
       });

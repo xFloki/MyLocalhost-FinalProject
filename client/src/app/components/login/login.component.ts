@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.user).subscribe(
       (user) => {
         loginForm.reset();
-        console.log(user);
-        this.router.navigate(['/task']);
+        console.log('NOOO')
+        console.log(this.authService.user);
+        user.homeless ? this.router.navigate(['/house-creator']) : this.router.navigate(['/task']);
       },
       (error) => {
         this.error = error.message;
