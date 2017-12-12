@@ -25,8 +25,8 @@ export class PortionComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-       let id =  params['id'];
-       this.getShopListInfo(id);
+       this.id =  params['id'];
+       this.getShopListInfo(this.id);
     });
   }
 
@@ -59,8 +59,10 @@ export class PortionComponent implements OnInit {
       )
     } else {
       this.shoplistService
-      .createPortion(this.shopList._id, prod.name).subscribe();
-      this.shopList.products[hasPortion].products.push(prod.name);
+      .createPortion(this.shopList._id, prod.name).subscribe(
+        () => this.getShopListInfo(this.id)
+      );
+
     }
     this.products = '';
     this.product = '';
