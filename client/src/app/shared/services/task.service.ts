@@ -19,6 +19,12 @@ export class TaskService {
       .catch(this.handleError);
   }
 
+  listUnassigned(){
+    return this.http.get(this.baseUrl + '/unassigned', this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   protected handleError(error: Response | any): Observable<any> {
     console.error(error);
   return Observable.throw(error.json());

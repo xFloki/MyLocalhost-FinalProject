@@ -15,10 +15,12 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('8=====D')
-    //this.user = this.authService.user;
-    //this.authService.loginEvent.subscribe(user => this.user = user)
-    console.log('///')
   }
+
+  logout(){
+    this.authService.logout().subscribe(
+      (e) => this.router.navigate(['/login']));
+  }
+
 
 }

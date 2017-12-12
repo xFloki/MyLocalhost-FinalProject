@@ -27,8 +27,6 @@ export class HouseInvitationsComponent implements OnInit {
   }
 
   acceptInvitation(houseId){
-    console.log('GOUU')
-    console.log(houseId);
     this.houseService.addHouseMember(houseId).subscribe(
       () => this.houseService.removeInvitations().subscribe(
         () => this.userService.notHomeless().subscribe(

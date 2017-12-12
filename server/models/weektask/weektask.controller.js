@@ -1,5 +1,3 @@
-const path = require('path');
-const debug = require('debug')("angularauth:" + path.basename(__filename).split('.')[0]);
 const WeekTask = require('./weektask.model');
 
 module.exports = {

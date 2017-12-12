@@ -4,6 +4,7 @@ module.exports = function(app) {
 
 app.use('/api/auth', require("../models/user/index"));
 app.use('/api/user', apiFor(require('../models/user/user.model')));
+app.use('/api/chore', require('../models/task/index'));
 app.use('/api/chore', apiFor(require('../models/task/task.model')));
 app.use('/api/choreWeek', require('../models/weektask/index'));
 app.use('/api/choreWeek', apiFor(require('../models/weektask/weektask.model')));

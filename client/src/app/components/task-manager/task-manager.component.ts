@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./task-manager.component.css']
 })
 export class TaskManagerComponent implements OnInit {
+
   tasks;
   weekTasks;
-  error;
+
   constructor(
     private taskService: TaskService,
     private weekTaskService: WeekTaskService,
@@ -20,10 +21,7 @@ export class TaskManagerComponent implements OnInit {
     private router: Router   ) { }
 
   ngOnInit() {
-    this.taskService.list().subscribe(
-      (tasks) => this.tasks = tasks,
-      (error) => this.error = error.message
-    );
+    this.listUnassigned();
     this.listByUser();
 
   }
@@ -33,28 +31,22 @@ export class TaskManagerComponent implements OnInit {
       (tasks) => {
         this.weekTasks = tasks,
         console.log(tasks);
-      },
-      (error) => this.error = error.message
+      }
     );
   }
 
-  logout(){
-    this.authService.logout().subscribe(
-      (e) => {
-        console.log('8======D');
-        console.log(this.authService.isAuthenticated());
-        console.log(this.authService.user);
-        this.router.navigate(['/login'])
-      } ,
-      (error) => this.error = error.message
+  listUnassigned(){
+    this.taskService.listUnassigned().subscribe(
+      (tasks) => this.tasks = tasks
     );
   }
-
 
   add(id) {
     this.weekTaskService.addToUser(id).subscribe(
-      (e) => this.listByUser(),
-      (error) => this.error = error.message
+      (e) => {
+        this.listByUser();
+        this.listUnassigned();
+      }
     );
   }
 
