@@ -17,7 +17,6 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('ME METO UN TIRO')
     this.show = this.authService.isAuthenticated()
   }
 

@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Password is required']
     },
+    homeless:{
+      type: Boolean,
+      default: true
+    },
     photoUrl: String
 }, {
     timestamps: true,

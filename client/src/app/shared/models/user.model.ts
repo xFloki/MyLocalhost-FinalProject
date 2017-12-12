@@ -1,8 +1,9 @@
 export class User {
-    id:string
+    id:string;
     username:string;
     name: string;
     email: string;
     password: string;
+    homeless:boolean;
     photoUrl: string;
 }
