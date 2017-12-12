@@ -3,7 +3,7 @@ const apiFor = require('../models/simplecrud.model');
 module.exports = function(app) {
 
 app.use('/api/auth', require("../models/user/index"));
-app.use('/api/house', apiFor(require('../models/house/house.model')));
+app.use('/api/house', require('../models/house/index'));
 app.use('/api/user', apiFor(require('../models/user/user.model')));
 app.use('/api/chore', apiFor(require('../models/task/task.model')));
 app.use('/api/choreWeek', require('../models/weektask/index'));
