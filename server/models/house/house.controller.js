@@ -26,6 +26,14 @@ module.exports = {
     .catch(err => res.status(500).json(err) );
  },
 
+ getCurrentUserHouse: (req, res, next) => {
+   House.findOne( { members: req.user.id } )
+    .then(e => {
+      res.status(200).json(e);
+    })
+    .catch(err => res.status(500).json(err) );
+ },
+
  createHouse: (req, res, next) => {
    console.log('PENE');
    let id = req.user._id;
@@ -42,6 +50,15 @@ module.exports = {
         res.status(200).json(result);
       })
       .catch(err => res.status(500).json(err));
+ },
+
+ addHouseMember: (req, res, next) => {
+   House.findByIdAndUpdate(req.params.houseId,
+     { $push: {members:req.user.id } }, {new: true})
+    .then(e => {
+      res.status(200).json(e);
+    })
+    .catch(err => res.status(500).json(err) );
  }
 
 };

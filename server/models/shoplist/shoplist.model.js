@@ -7,6 +7,11 @@ const shopListSchema = new mongoose.Schema(
       ref: 'User',
       required: true
     },
+    house: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'House',
+      required: true
+    },
     products:  [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Portion',

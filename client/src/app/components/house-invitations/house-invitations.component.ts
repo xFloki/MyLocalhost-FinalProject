@@ -26,13 +26,17 @@ export class HouseInvitationsComponent implements OnInit {
     )
   }
 
-  acceptInvitation(){
-    this.houseService.removeInvitations().subscribe(
-      () => this.userService.notHomeless().subscribe(
-        (user) => {
-          this.authService.user = user;
-          this.router.navigate(['/task']);
-        }
+  acceptInvitation(houseId){
+    console.log('GOUU')
+    console.log(houseId);
+    this.houseService.addHouseMember(houseId).subscribe(
+      () => this.houseService.removeInvitations().subscribe(
+        () => this.userService.notHomeless().subscribe(
+          (user) => {
+            this.authService.user = user;
+            this.router.navigate(['/task']);
+          }
+        )
       )
     )
   }

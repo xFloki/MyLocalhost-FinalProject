@@ -12,8 +12,8 @@ export class ShoplistService {
 
   constructor(private http: Http) { }
 
-  addNewShopList(){
-    return this.http.post(this.baseUrl + '/add', {}, this.options)
+  addNewShopList(house){
+    return this.http.post(this.baseUrl + '/add', { house }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -26,6 +26,12 @@ export class ShoplistService {
 
   showShopList(id){
     return this.http.get(this.baseUrl + '/' + id, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  showShopListsHouse(house){
+    return this.http.get(this.baseUrl + '/house/' + house, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

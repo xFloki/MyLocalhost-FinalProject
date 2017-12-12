@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoplistService } from './../../shared/services/shoplist.service';
 import { AuthService } from './../../shared/services/auth.service';
+import { HouseService } from './../../shared/services/house.service';
 
 @Component({
   selector: 'app-shoplist',
@@ -10,18 +11,25 @@ import { AuthService } from './../../shared/services/auth.service';
 export class ShoplistComponent implements OnInit {
 
   shoplists: Array<any>=[];
+  currentHouseId:string;
 
   constructor(
     private shoplistService: ShoplistService,
-    private authService: AuthService
+    private authService: AuthService,
+    private houseService: HouseService
   ) { }
 
   ngOnInit() {
-    this.showShopLists();
+    this.houseService.currentUserHouse().subscribe(
+      (shoplist) => {
+        console.log(shoplist)
+        this.currentHouseId = shoplist._id
+        this.showShopLists();
+      });
   }
 
   addNewShopList(){
-    this.shoplistService.addNewShopList().subscribe(
+    this.shoplistService.addNewShopList(this.currentHouseId).subscribe(
       (shoplist) => {
         shoplist.owner = { username: this.authService.user.username };
         this.shoplists.push(shoplist)
@@ -30,9 +38,11 @@ export class ShoplistComponent implements OnInit {
   }
 
   showShopLists(){
-    this.shoplistService.showShopLists().subscribe(
-      (shoplists) => this.shoplists = shoplists
-    )
+    this.shoplistService.showShopListsHouse(this.currentHouseId).subscribe(
+     (shoplists) => {
+
+       this.shoplists = shoplists }
+   )
   }
 
 

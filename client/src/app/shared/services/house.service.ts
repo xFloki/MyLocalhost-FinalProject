@@ -30,6 +30,18 @@ export class HouseService {
       .catch(this.handleError);
   }
 
+  currentUserHouse(){
+    return this.http.get(this.baseUrl + '/current-user', this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  addHouseMember(id){
+    return this.http.patch(this.baseUrl + '/add/' + id, {}, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());
   }

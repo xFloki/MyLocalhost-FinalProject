@@ -135,6 +135,7 @@ const homes = [
     country: 'Spain',
   },
   {
+    _id: "5a3041c8b31eae5d2489b95e",
     owner: '5a268f2ba0f20bd4971baaaf',
     members: [
       '5a268f2ba0f20bd4971baaaf',
@@ -235,15 +236,18 @@ const shopLists = [
     products: [
       '5a2eae872c1be9407c4e42ca',
       '5a2eae872c1be9407c4e42c9'
-    ]
+    ],
+    house: '5a3000b10db40758c0501d9b'
   },
   {
     owner: '5a268f2ba0f20bd4971baaae',
-    products: ['5a2eae872c1be9407c4e42c8']
+    products: ['5a2eae872c1be9407c4e42c8'],
+    house: '5a3000b10db40758c0501d9b'
   },
   {
     owner: '5a268f2ba0f20bd4971baaad',
-    products: ['5a2eae872c1be9407c4e42cb']
+    products: ['5a2eae872c1be9407c4e42cb'],
+    house: '5a3041c8b31eae5d2489b95e'
   }
 ];
 

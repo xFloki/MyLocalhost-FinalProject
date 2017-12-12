@@ -4,8 +4,10 @@ module.exports = {
 
  addShopList: (req, res, next) => {
    let id = req.user._id;
+   let house = req.body.house;
    const newShopList = new ShopList ({
-      owner: id
+      owner: id,
+      house
     });
 
     newShopList.save()
@@ -13,6 +15,12 @@ module.exports = {
         res.status(200).json(result);
       })
       .catch(err => res.status(500).json(err));
+ },
+
+ getShopListsOfHouse: (req, res, next) => {
+   ShopList.find( { house: req.params.house } )
+    .then( result => res.status(200).json(result))
+    .catch(err => res.status(500).json(err));
  },
 
  getShopLists: (req, res, next) => {
