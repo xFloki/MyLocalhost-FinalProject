@@ -28,6 +28,7 @@ module.exports = {
 
  getCurrentUserHouse: (req, res, next) => {
    House.findOne( { members: req.user.id } )
+   .populate('members','username')
     .then(e => {
       res.status(200).json(e);
     })
@@ -55,6 +56,15 @@ module.exports = {
  addHouseMember: (req, res, next) => {
    House.findByIdAndUpdate(req.params.houseId,
      { $push: {members:req.user.id } }, {new: true})
+    .then(e => {
+      res.status(200).json(e);
+    })
+    .catch(err => res.status(500).json(err) );
+ },
+
+ getHouseMembers: (req, res, next) => {
+   House.findOne({ _id: req.params.id }, {_id:0, members:1})
+   .populate('members', 'username')
     .then(e => {
       res.status(200).json(e);
     })

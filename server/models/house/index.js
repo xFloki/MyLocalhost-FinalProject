@@ -8,5 +8,6 @@ houseRoutes.get('/current-user', HouseController.getCurrentUserHouse);
 houseRoutes.get('/:id', HouseController.getHouse);
 houseRoutes.get('/user/:id', HouseController.getHouseUser);
 houseRoutes.patch('/add/:houseId', HouseController.addHouseMember);
+houseRoutes.get('/members/:id', HouseController.getHouseMembers);
 
 module.exports = houseRoutes;

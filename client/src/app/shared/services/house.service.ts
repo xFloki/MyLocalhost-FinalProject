@@ -10,6 +10,8 @@ export class HouseService {
   private headers = new Headers({ 'Content-Type' : 'application/json'});
   private options = new RequestOptions({ headers: this.headers, withCredentials: true });
 
+  house;
+
   constructor(private http: Http) { }
 
   createHouse(house){
@@ -41,6 +43,12 @@ export class HouseService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  // getHouseMembers(){
+  //   return this.http.get(this.baseUrl + '/members/' + this.house._id, this.options)
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
 
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());

@@ -25,6 +25,7 @@ import { ShoplistComponent } from './components/shoplist/shoplist.component';
 import { PortionComponent } from './components/shoplist/portion/portion.component';
 import { HouseInvitationsComponent } from './components/house-invitations/house-invitations.component';
 import { HouseCreatorComponent } from './components/house-creator/house-creator.component';
+import { TaskAssignComponent } from './components/task-assign/task-assign.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'house-creator', component: HouseCreatorComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'house-invitations', component: HouseInvitationsComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'task', component: TaskManagerComponent, canActivate: [IsAuthenticatedGuard]  },
+  { path: 'task-assign', component: TaskAssignComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'profile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]  },
   { path: 'shoplist/:id', component: PortionComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'shoplist', component: ShoplistComponent, canActivate: [IsAuthenticatedGuard] },
@@ -54,6 +56,7 @@ const routes: Routes = [
     PortionComponent,
     HouseInvitationsComponent,
     HouseCreatorComponent,
+    TaskAssignComponent,
   ],
   imports: [
     BrowserModule,

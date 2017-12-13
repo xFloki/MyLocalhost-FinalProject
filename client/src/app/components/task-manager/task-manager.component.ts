@@ -21,7 +21,6 @@ export class TaskManagerComponent implements OnInit {
     private router: Router   ) { }
 
   ngOnInit() {
-    this.listUnassigned();
     this.listByUser();
 
   }
@@ -41,13 +40,6 @@ export class TaskManagerComponent implements OnInit {
     );
   }
 
-  add(id) {
-    this.weekTaskService.addToUser(id).subscribe(
-      (e) => {
-        this.listByUser();
-        this.listUnassigned();
-      }
-    );
-  }
+
 
 }

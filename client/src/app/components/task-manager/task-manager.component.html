@@ -1,17 +1,10 @@
-<div class="tasks">
-  <div class="">
-    <div *ngFor="let task of tasks">
-      <p>{{task.name}}</p>
-      <button type="button" (click)="add(task._id)" name="button">Add</button>
-    </div>
-  </div>
-
-
-  <p>/////</p>
+<div class="" *ngIf="owner">
+  <a [routerLink]="['/house-creator']">Assign</a>
+  <a [routerLink]="['/house-creator']">MyTasks</a>
+</div>
+<br>
   <ul>
     <li *ngFor="let t of weekTasks">
       {{t.task.name}}
     </li>
   </ul>
-
-</div>
