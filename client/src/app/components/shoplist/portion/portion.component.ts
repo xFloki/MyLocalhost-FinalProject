@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoplistService } from './../../../shared/services/shoplist.service';
 import { AuthService } from './../../../shared/services/auth.service';
+import { DebtService } from './../../../shared/services/debt.service';
 import { ActivatedRoute } from '@angular/router';
-import $ from 'jquery';
 
 @Component({
   selector: 'app-portion',
@@ -19,6 +19,7 @@ export class PortionComponent implements OnInit {
 
   constructor(
     private shoplistService: ShoplistService,
+    private debtService: DebtService,
     private route: ActivatedRoute,
     private authService: AuthService
    ) { }
@@ -66,7 +67,21 @@ export class PortionComponent implements OnInit {
     }
     this.products = '';
     this.product = '';
-    console.log(hasPortion);
+  }
+
+  acceptPortion(owner,portion){
+    this.shoplistService.acceptPortion(portion._id).subscribe(
+      ()=> {
+        console.log(portion);
+        let debt = {
+          debtor: portion.owner.id,
+          quantity: 30,
+          reason: 'ShopList day ' + new Date() + 'created by ' + owner.username
+        }
+        this.debtService.create(debt).subscribe();
+        this.getShopListInfo(this.id);
+      }
+    )
   }
 
 }

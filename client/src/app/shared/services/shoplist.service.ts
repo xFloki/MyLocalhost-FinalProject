@@ -54,6 +54,12 @@ export class ShoplistService {
       .catch(this.handleError);
   }
 
+  acceptPortion(id){
+    return this.http.patch(this.baseUrl + '/portion/accept/' + id, {}, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());

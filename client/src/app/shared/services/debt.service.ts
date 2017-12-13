@@ -30,6 +30,12 @@ export class DebtService  {
       .catch(this.handleError);
   }
 
+  create(debt){
+    return this.http.post(this.baseUrl + '/create', { debt }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());
   }

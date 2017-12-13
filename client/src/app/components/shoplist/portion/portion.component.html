@@ -1,4 +1,5 @@
 <div class="" *ngIf="shopList">
+  <p>{{shopList.owner.id}}</p>
   <p>Creador: {{shopList.owner.username}}</p>
   <p>Created At: {{shopList.createdAt}}</p>
   <input type="text" name="" [(ngModel)]="product">
@@ -11,6 +12,13 @@
   <div class="" *ngFor="let portion of shopList.products">
     <div class="">
       <p>{{portion.owner.username}}</p>
+      <p>{{authService.user.id}}</p>
+      <div class="" *ngIf="!portion.status && authService.user.id == shopList.owner.id
+      && portion.owner.id !== authService.user.id">
+        <a class="btn btn-default">
+          <span (click)="acceptPortion(shopList.owner, portion)" class="glyphicon glyphicon-ok-circle"></span>
+        </a>
+      </div>
       <ul>
         <li *ngFor="let product of portion.products">{{product}}</li>
       </ul>

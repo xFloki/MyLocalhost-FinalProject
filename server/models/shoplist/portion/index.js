@@ -6,5 +6,6 @@ portionRoutes.get('/', PortionController.getPortions);
 portionRoutes.get('/:id', PortionController.getPortion);
 portionRoutes.post('/', PortionController.createPortion);
 portionRoutes.patch('/:id', PortionController.updatePortion);
+portionRoutes.patch('/accept/:id', PortionController.setPortionToAccepted);
 
 module.exports = portionRoutes;
