@@ -1,16 +1,24 @@
-<form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
-  <fieldset>
-    <legend>login</legend>
-    <div>
-      <label for="email">Username:</label>
-      <input type="text" name="email" [(ngModel)]="user.username" required>
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" [(ngModel)]="user.password" required>
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-    <a [routerLink]="['/register']">Not Account Yet?</a>
+<br>
+<img class="center" style="margin-top:30px" src="/assets/home.png"
+width="150" alt="">
+
+<div  class="" style="text-align:center">
+  <br>
+  <h3>Login</h3>
+  <br>
+  <form (ngSubmit)="onSubmitLogin(loginForm)" class="example-form" #loginForm="ngForm">
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input type="password" matInput placeholder="Password" name="password"
+      [(ngModel)]="user.password">
+    </mat-form-field><br><br>
+
+    <button mat-raised-button color="primary">Primary</button>
+    <a [routerLink]="['/register']" style="margin-left:15px;">Not Account Yet?</a>
     <p class="error" *ngIf="error">{{ error }}</p>
-  </fieldset>
-</form>
+  </form>
+</div>

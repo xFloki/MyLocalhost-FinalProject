@@ -1,24 +1,32 @@
-<form (ngSubmit)="signUp(newUser)" #loginForm="ngForm">
-  <fieldset>
-    <legend>Register</legend>
-    <div>
-      <label for="email">Username:</label>
-      <input type="text" name="email" [(ngModel)]="newUser.username" required>
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" [(ngModel)]="newUser.password" required>
-    </div>
-    <div>
-      <label for="name">Name</label>
-      <input type="text" name="name" [(ngModel)]="newUser.name" required>
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" [(ngModel)]="newUser.email" required>
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Register</button>
-    <a [routerLink]="['/login']">Already Have Account</a>
+<br>
+<img class="center" style="margin-top:30px" src="/assets/home.png"
+width="150" alt="">
+
+<div  class="" style="text-align:center">
+  <br>
+  <h3>Register</h3>
+  <br>
+  <form (ngSubmit)="signUp(newUser)" class="example-form" #registerForm="ngForm">
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" name="username" [(ngModel)]="newUser.username">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input type="password" matInput placeholder="Password" name="password"
+      [(ngModel)]="newUser.password">
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" name="name" [(ngModel)]="newUser.name">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="newUser.email">
+    </mat-form-field>
+    <br><br>
+
+    <button mat-raised-button color="primary" >Register</button>
+    <a [routerLink]="['/login']" style="margin-left:15px;">Already Have Account</a>
     <p class="error" *ngIf="error">{{ error }}</p>
-  </fieldset>
-</form>
+  </form>
+</div>
