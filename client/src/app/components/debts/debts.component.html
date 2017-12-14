@@ -1,17 +1,26 @@
-<div class="debt-header">
-  <div style="margin: 0 20px; 0 0">
-    To pay:
-    <p>{{toPay}}</p>
-  </div>
-  <div class="balance">
-    Balance:
-    <p>{{balance}}</p>
-  </div>
-  <div style="margin: 0 0 0 20px;">
-    To be Payed:
-    <p>{{toBePayed}}</p>
-  </div>
-</div>
+<nav class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="debt-header">
+        <div >
+          To pay
+          <p style="color:red">{{toPay}}€</p>
+        </div>
+        <div class="balance">
+          Balance
+          <p style="font-size: 1.75em;">{{balance}}€</p>
+        </div>
+        <div>
+          To be Payed
+          <p>{{toBePayed}}€</p>
+        </div>
+      </div>
+    </div>
+</nav>
+
+
+
+
 <div class="content">
   <div class="to-pay">
     <div class="" *ngFor="let debt of activeDebts">

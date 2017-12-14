@@ -1,9 +1,9 @@
 
 <div id="footer" *ngIf="authService.user">
   <div class="" *ngIf="!authService.user.homeless">
-    <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
+    <div class="flokifix col-xs-12 navbar-inverse navbar-fixed-bottom">
     <div class="row" id="bottomNav">
-      <div class="col-xs-3 text-center"><a [routerLink]="['/task-assign']">
+      <div class="col-xs-3 text-center"><a [routerLink]="['/task']">
         <i style="margin-top: 3px;" class="glyphicon glyphicon-home"></i><br>Tasks</a>
       </div>
       <div class="col-xs-3 text-center"><a [routerLink]="['/shoplist']">

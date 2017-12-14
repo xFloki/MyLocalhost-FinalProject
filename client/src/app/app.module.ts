@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatToolbarModule, MatCardModule}
+from '@angular/material';
 
 
 
@@ -72,7 +73,8 @@ const routes: Routes = [
     MatCheckboxModule,
     MatInputModule,
     MatToolbarModule,
-    
+    MatCardModule,
+
     RouterModule.forRoot(routes)
   ],
   providers: [

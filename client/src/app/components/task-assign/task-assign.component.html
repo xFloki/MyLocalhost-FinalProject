@@ -1,10 +1,11 @@
 <a [routerLink]="['/task-assign']">Assign</a>
 <a [routerLink]="['/task']">MyTasks</a>
-
+<br>
+<select [(ngModel)]="selectedValue">
+  <option *ngFor="let user of members" [ngValue]="user.id">{{user.username}}</option>
+</select>
+<br>
 <div *ngFor="let task of tasks">
   <p>{{task.name}}</p>
-  <select [(ngModel)]="selectedValue">
-    <option *ngFor="let user of members" [ngValue]="user.id">{{user.username}}</option>
-  </select>
   <button type="button" (click)="add(selectedValue, task._id)" name="button">Add</button>
 </div>

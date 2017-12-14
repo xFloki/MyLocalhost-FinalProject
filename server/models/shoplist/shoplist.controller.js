@@ -19,6 +19,7 @@ module.exports = {
 
  getShopListsOfHouse: (req, res, next) => {
    ShopList.find( { house: req.params.house } )
+    .populate('owner', 'username')
     .then( result => res.status(200).json(result))
     .catch(err => res.status(500).json(err));
  },

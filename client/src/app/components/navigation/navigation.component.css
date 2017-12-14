@@ -1,0 +1,9 @@
+#footer {
+  position: fixed;
+}
+
+.flokifix {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

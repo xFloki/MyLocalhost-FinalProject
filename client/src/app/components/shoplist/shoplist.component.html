@@ -1,9 +1,20 @@
-<button (click)="addNewShopList()" name="button">Create ShopList</button>
+<button style="width: 100%; margin-top:10px; margin-bottom: 10px;"
+mat-raised-button color="accent" (click)="addNewShopList()">
+  Create New Shoplist
+</button>
 
-<br><hr>
-<div class="" *ngFor="let shoplist of shoplists">
-  <p>Fecha de creacion: {{shoplist.createdAt}}</p>
-  <p>Creada por: {{shoplist.owner.username}}         Total Price: {{shoplist.totalPrice}}</p>
-  <a [routerLink]="['/shoplist', shoplist._id]">Sow more</a>
-  <hr>
+<br>
+<div style="padding-bottom: 50px;">
+
+
+<div  *ngFor="let shoplist of shoplists">
+  <mat-card style="border: 1px solid red; margin: 20px;">
+    <mat-card-title>Creation: <br> {{shoplist.createdAt}}</mat-card-title>
+    <mat-card-subtitle>Creada por: {{shoplist.owner.username}} </mat-card-subtitle>
+    <mat-card-subtitle>Total Price: {{shoplist.totalPrice}}</mat-card-subtitle>
+    <mat-card-subtitle><a [routerLink]="['/shoplist', shoplist._id]">Sow more</a></mat-card-subtitle>
+  </mat-card>
+
+</div>
+
 </div>
