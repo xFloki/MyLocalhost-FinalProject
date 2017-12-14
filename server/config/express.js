@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -11,12 +12,15 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 const corsConfig = require('./cors.config');
 
+
 module.exports = function(app) {
 
-const db = 'mongodb://localhost/mylocalhost-project';
 
-mongoose.connect(db,{useMongoClient:true}).then(() =>{
-  console.log("Connected to db: " + db);
+console.log('8=======D');
+console.log(process.env.MONGO_URL);
+
+mongoose.connect(process.env.MONGO_URL,{useMongoClient:true}).then(() =>{
+  console.log("Connected to db");
 });
 
 // uncomment after placing your favicon in /public
