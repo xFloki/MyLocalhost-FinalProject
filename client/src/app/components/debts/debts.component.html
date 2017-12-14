@@ -18,32 +18,29 @@
     </div>
 </nav>
 
-
-
-
-<div class="content">
-  <div class="to-pay">
-    <div class="" *ngFor="let debt of activeDebts">
-      <p>{{debt.quantity}} €</p>
-      <p>{{debt.creditor.username}}</p>
-      <p>{{debt.createdAt}}</p>
-    </div>
-    <div class="old-debts" *ngFor="let debt of oldDebts">
-      <p>{{debt.quantity}} €</p>
-      <p>{{debt.creditor.username}}</p>
-      <p>{{debt.createdAt}}</p>
-    </div>
-  </div>
-  <div class="to-be-payed">
-    <div class="" *ngFor="let debt of toBePayedDebts">
-      <div class="" *ngIf="debt.status">
+<div class="">
+    <div class="to-pay">
+      <div class="" *ngFor="let debt of activeDebts">
         <p>{{debt.quantity}} €</p>
-        <p>{{debt.debtor.username}}</p>
+        <p>{{debt.creditor.username}}</p>
         <p>{{debt.createdAt}}</p>
-        <a class="btn btn-default">
-          <span (click)="confirmPaid(debt)" class="glyphicon glyphicon-ok-circle"></span>
-        </a>
+      </div>
+      <div class="old-debts" *ngFor="let debt of oldDebts">
+        <p>{{debt.quantity}} €</p>
+        <p>{{debt.creditor.username}}</p>
+        <p>{{debt.createdAt}}</p>
       </div>
     </div>
-  </div>
+    <div class="to-be-payed">
+      <div class="" *ngFor="let debt of toBePayedDebts">
+        <div class="" *ngIf="debt.status">
+          <p>{{debt.quantity}} €</p>
+          <p>{{debt.debtor.username}}</p>
+          <p>{{debt.createdAt}}</p>
+          <a class="btn btn-default">
+            <span (click)="confirmPaid(debt)" class="glyphicon glyphicon-ok-circle"></span>
+          </a>
+        </div>
+      </div>
+    </div>
 </div>

@@ -25,11 +25,14 @@
   <div class="" *ngIf="authService.user.homeless">
     <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
     <div class="row" id="bottomNav">
-      <div class="col-xs-6 text-center"><a [routerLink]="['/house-creator']">
+      <div class="col-xs-4 text-center"><a [routerLink]="['/house-creator']">
         <i style="margin-top: 3px;" class="glyphicon glyphicon-home"></i><br>Tasks</a>
       </div>
-      <div class="col-xs-6 text-center"><a [routerLink]="['/house-invitations']">
+      <div class="col-xs-4 text-center"><a [routerLink]="['/house-invitations']">
         <i style="margin-top: 3px;" class="glyphicon glyphicon-th-list"></i><br>Shop Lists</a>
+      </div>
+      <div class="col-xs-4 text-center"><a (click)="logout()">
+        <i style="margin-top: 3px;" class="glyphicon glyphicon-log-out"></i><br>Shop Lists</a>
       </div>
     </div>
     </div>

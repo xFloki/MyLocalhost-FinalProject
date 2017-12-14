@@ -3,12 +3,14 @@
   <p>Creador: {{shopList.owner.username}}</p>
   <p>Created At: {{shopList.createdAt}}</p>
   <input type="text" name="" [(ngModel)]="product">
-   <button (click)="searchProduct()" name="button">Search Product</button>
-  <div class="" *ngIf="products">
+   <button (click)="searchProduct()" name="button" data-toggle="modal" data-target="#myModal">
+     Search Product
+   </button>
+  <!-- <div class="" *ngIf="products">
     <div class="products" *ngFor="let prod of products; let i = index">
       <p>{{prod.name}}  {{prod.price}} €  <button (click)="addToPortion(prod)">ADD</button></p>
     </div>
-  </div>
+  </div> -->
   <div class="" *ngFor="let portion of shopList.products">
     <div class="">
       <p>{{portion.owner.username}}</p>
@@ -25,3 +27,28 @@
     </div>
   </div>
 </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="padding-bottom:20px">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="" *ngIf="products">
+            <div class="products" *ngFor="let prod of products; let i = index">
+              <a (click)="addToPortion(prod)" data-toggle="modal" data-target="#myModal">
+                <img width="50px" src="{{prod.img}}" alt="">{{prod.name}}  {{prod.price}} €
+                <button type="button" name="button">HH</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

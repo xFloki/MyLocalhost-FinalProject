@@ -237,17 +237,21 @@ const shopLists = [
       '5a2eae872c1be9407c4e42ca',
       '5a2eae872c1be9407c4e42c9'
     ],
-    house: '5a3000b10db40758c0501d9b'
+    house: '5a3000b10db40758c0501d9b',
+    totalPrice: 15
   },
   {
     owner: '5a268f2ba0f20bd4971baaae',
     products: ['5a2eae872c1be9407c4e42c8'],
-    house: '5a3000b10db40758c0501d9b'
+    house: '5a3000b10db40758c0501d9b',
+    totalPrice: 5
   },
   {
     owner: '5a268f2ba0f20bd4971baaad',
     products: ['5a2eae872c1be9407c4e42cb'],
-    house: '5a3041c8b31eae5d2489b95e'
+    house: '5a3041c8b31eae5d2489b95e',
+    status: false,
+    totalPrice: 9.80
   }
 ];
 

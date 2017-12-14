@@ -9,10 +9,9 @@ p {
   text-align: center;
 }
 
-.content {
+.contenido {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
 }
 
 .to-pay, .to-be-payed {
