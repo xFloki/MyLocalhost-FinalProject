@@ -8,9 +8,10 @@ const ShopList = require('../models/shoplist/shoplist.model');
 const ShopPortion = require('../models/shoplist/portion/portion.model');
 const Debt = require('../models/debt/debt.model');
 const HouseInvitation = require('../models/house/house-invitation/house-invitation.model');
+require('dotenv').config();
 
 const encryptedPass = '1';
-const db = 'mongodb://localhost/mylocalhost-project';
+const db = process.env.REMOTE_DB;
 
 console.log(db);
 mongoose.connect(db, () =>{
