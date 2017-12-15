@@ -6,9 +6,7 @@
 <!-- <a [routerLink]="['/task-assign']">Assign</a>
 <a [routerLink]="['/task']">MyTasks</a> -->
 <br>
-  <ul>
-    <li *ngFor="let t of weekTasks">
-      {{t.task.name}}
-      <img src="125x125.jpg" class="img-circle" alt="Circular Image">
-    </li>
-  </ul>
+
+<div *ngFor="let t of weekTasks">
+  <mat-card>{{t.task.name}}</mat-card>
+</div>

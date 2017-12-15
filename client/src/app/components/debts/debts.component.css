@@ -25,3 +25,7 @@ p {
 span {
   color: green;
 }
+
+.example-card {
+  margin-top: 12px;
+}

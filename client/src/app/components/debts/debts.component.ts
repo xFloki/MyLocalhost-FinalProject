@@ -31,6 +31,7 @@ export class DebtsComponent implements OnInit {
             this.oldDebts.push(e);
           }
         });
+        this.calculateBalance();
       }
     );
 
