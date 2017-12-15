@@ -11,7 +11,7 @@ const HouseInvitation = require('../models/house/house-invitation/house-invitati
 require('dotenv').config();
 
 const encryptedPass = '1';
-const db = process.env.REMOTE_DB;
+const db = process.env.MONGO_URL;
 
 console.log(db);
 mongoose.connect(db, () =>{
@@ -213,17 +213,21 @@ const shopListPortions = [
   {
     _id: '5a2eae872c1be9407c4e42ca',
     owner: '5a268f2ba0f20bd4971baaae',
-    products: ['Agua', 'Leche', 'Arroz', 'Salmon']
+    products: [['Agua',2],['Leche',3],['Arroz',4],['Salmon',6]],
+    totalPrice: 15
   },
   {
     _id: '5a2eae872c1be9407c4e42c9',
     owner: '5a268f2ba0f20bd4971baaac',
-    products: ['Empanada', 'Chocolate', 'Lemons', 'Sugar']
+    products: [['Chocolate',4],['Ajoaseite',3]],
+    totalPrice: 7
   },
   {
     _id: '5a2eae872c1be9407c4e42c8',
     owner: '5a268f2ba0f20bd4971baaad',
-    products: ['Garlic Bread', 'Pizza']
+    products: [['Pepsi',5],['Entrecot de Buey',20],['Galletas',4],
+    ['Salt',1], ['Barbacue Sauce',2.5]],
+    totalPrice: 32.5
   },
   {
     _id: '5a2eae872c1be9407c4e42cb',

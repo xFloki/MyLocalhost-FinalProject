@@ -36,10 +36,10 @@ module.exports = {
    .populate({
     path: 'products',
     model: 'Portion',
-    select: 'owner status products',
+    select: 'owner status products totalPrice',
     populate: {
         path: 'owner',
-        select: 'username',
+        select: 'username photoUrl',
         model: 'User'
       }
     })

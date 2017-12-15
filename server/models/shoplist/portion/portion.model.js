@@ -7,7 +7,7 @@ const portionSchema = new mongoose.Schema(
       ref: 'User',
       required: true
     },
-    products: [String],
+    products: [],
     status: {
         type: Boolean,
         default: false

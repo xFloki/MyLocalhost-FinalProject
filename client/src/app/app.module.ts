@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatToolbarModule,
-   MatCardModule }
+   MatCardModule, MatIconModule }
 from '@angular/material';
 
 
@@ -75,6 +75,7 @@ const routes: Routes = [
     MatInputModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
 
     RouterModule.forRoot(routes)
   ],

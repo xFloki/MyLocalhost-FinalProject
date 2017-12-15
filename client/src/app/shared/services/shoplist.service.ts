@@ -60,6 +60,12 @@ export class ShoplistService {
       .catch(this.handleError);
   }
 
+  cancelPortion(id){
+    return this.http.delete(this.baseUrl + '/portion/' + id, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 
   protected handleError(error: Response | any): Observable<any> {
     return Observable.throw(error.json());

@@ -6,7 +6,6 @@ mat-raised-button color="accent" (click)="addNewShopList()">
 <br>
 <div>
 
-
 <div  *ngFor="let shoplist of shoplists">
   <mat-card style="border: 1px solid red; margin: 20px;">
     <mat-card-title>Creation: <br> {{shoplist.createdAt}}</mat-card-title>

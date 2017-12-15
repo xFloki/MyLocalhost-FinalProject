@@ -1,20 +1,23 @@
-<div class="" *ngIf="shopList">
-  <p>{{shopList.owner.id}}</p>
-  <p>Creador: {{shopList.owner.username}}</p>
-  <p>Created At: {{shopList.createdAt}}</p>
-  <input type="text" name="" [(ngModel)]="product">
-   <button (click)="searchProduct()" name="button" data-toggle="modal" data-target="#myModal">
-     Search Product
+<div wid class="shop-list" *ngIf="shopList" >
+  <img width="120px;" style="margin:20px;" src="/assets/shopping-list-logo.png" alt="">
+  <h4>{{shopList.owner.username}}</h4>
+  <p>SHOP LIST</p>
+
+  <mat-form-field >
+   <input matInput type="text" placeholder="Search Product" [(ngModel)]="product"/>
+   <button mat-button *ngIf="product"
+    matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+     <mat-icon>close</mat-icon>
    </button>
-  <!-- <div class="" *ngIf="products">
-    <div class="products" *ngFor="let prod of products; let i = index">
-      <p>{{prod.name}}  {{prod.price}} €  <button (click)="addToPortion(prod)">ADD</button></p>
-    </div>
-  </div> -->
+  </mat-form-field>
+  <button mat-button (click)="searchProduct()" data-toggle="modal" data-target="#myModal">
+    Add New Product
+  </button>
+
   <div class="" *ngFor="let portion of shopList.products">
-    <div class="">
-      <p>{{portion.owner.username}}</p>
-      <p>{{authService.user.id}}</p>
+    <!-- <div class="">
+      <p>{{portion.owner.username}} Portion</p>
+      <br>
       <div class="" *ngIf="!portion.status && authService.user.id == shopList.owner.id
       && portion.owner.id !== authService.user.id">
         <a class="btn btn-default">
@@ -23,10 +26,42 @@
       </div>
       <ul>
         <li *ngFor="let product of portion.products">{{product}}</li>
-      </ul>
+      </ul> -->
+
+      <mat-card class="example-card" style="background-color: #F2F2F2">
+        <mat-card-header>
+          <mat-card-title>{{portion.owner.username}} Portion</mat-card-title>
+          <mat-card-subtitle>Total price {{portion.totalPrice}} €</mat-card-subtitle>
+          <p class="status" *ngIf="!portion.status">
+            Pending
+            <i style="color:red" class="fa fa-question-circle-o links" aria-hidden="true"></i>
+          </p>
+          <p class="status" *ngIf="portion.status">
+            Accepted
+            <i style="color:green" class="fa fa-check-circle-o links" aria-hidden="true"></i>
+          </p>
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngFor="let product of portion.products">
+
+              <!-- <p style="background-color: #E6E6E6;">{{product}}</p> -->
+              <mat-card class="card">
+                {{product[0]}}
+                <p style="text-align:right; margin-right: 10px">{{product[1]}} €</p>
+              </mat-card>
+            </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="!portion.status && authService.user.id == shopList.owner.id
+        && portion.owner.id !== authService.user.id">
+          <button mat-raised-button color="accent" (click)="acceptPortion(shopList.owner, portion)">Accept</button>
+          <button mat-raised-button color="warn" (click)="cancelPortion(portion._id)">Cancel</button>
+        </mat-card-actions>
+      </mat-card>
+
     </div>
+
   </div>
-</div>
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog" style="padding-bottom:20px">
@@ -41,7 +76,6 @@
             <div class="products" *ngFor="let prod of products; let i = index">
               <a (click)="addToPortion(prod)" data-toggle="modal" data-target="#myModal">
                 <img width="50px" src="{{prod.img}}" alt="">{{prod.name}}  {{prod.price}} €
-                <button type="button" name="button">HH</button>
               </a>
             </div>
           </div>

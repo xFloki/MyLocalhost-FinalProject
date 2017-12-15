@@ -1,0 +1,16 @@
+.shop-list {
+  text-align: center;
+}
+
+.card{
+  text-align: left;
+  padding: 8px
+}
+
+.example-card{
+  margin: 20px 0 20px 0;
+}
+
+.status{
+  text-align: right;
+}

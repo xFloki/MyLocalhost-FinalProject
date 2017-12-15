@@ -18,7 +18,8 @@ module.exports = {
  updatePortion: (req, res, next) => {
    prod = req.body.prod;
    Portion.findByIdAndUpdate(req.params.id,
-      { $push: {products:prod } }, {new: true})
+      { $push: { products: [ prod.name, prod.price.replace(/,/g,".") ]},
+        $set: { totalPrice: prod.totalPrice  }, }, {new: true})
     .then((result) => {
       res.status(200).json(result);
     })
@@ -26,11 +27,11 @@ module.exports = {
  },
 
  createPortion: (req, res, next) => {
-   console.log(req.body.shoplist);
    let id = req.user._id;
    const newPortion = new Portion ({
       owner: id,
-      products: req.body.prod
+      products: [[ req.body.prod.name, req.body.prod.price ]],
+      totalPrice: req.body.prod.price.replace(/,/g,".")
     });
     newPortion.save()
       .then(result => {
@@ -41,11 +42,16 @@ module.exports = {
            res.status(200).json(result);
          });
       })
-      .catch(err => { es.status(500).json(err); });
+      .catch(err => { res.status(500).json(err); });
  },
 
  setPortionToAccepted: (req, res, next) => {
    Portion.findByIdAndUpdate(req.params.id, { status:true }, { new: true })
+    .then((result) =>  res.status(200).json(result));
+ },
+
+ cancelPortion: (req, res, next) => {
+   Portion.findByIdAndRemove(req.params.id)
     .then((result) =>  res.status(200).json(result));
  },
 
