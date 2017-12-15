@@ -8,9 +8,9 @@ require('./config/passport')(app);
 
 require('./routes')(app);
 
-app.all('/*', function (req, res) {
-   res.sendFile(__dirname + '/public/index.html');
- });
+// app.all('/*', function (req, res) {
+//    res.sendFile(__dirname + '/public/index.html');
+//  });
 
 require('./config/error-handler')(app);
 

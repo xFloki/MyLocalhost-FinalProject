@@ -18,7 +18,7 @@ module.exports = {
     select: 'owner street',
     populate: {
         path: 'owner',
-        select: 'username',
+        select: 'username photoUrl',
         model: 'User'
       }
     })

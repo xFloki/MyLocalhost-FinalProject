@@ -24,7 +24,10 @@ const userSchema = new mongoose.Schema({
       type: Boolean,
       default: true
     },
-    photoUrl: String
+    photoUrl: {
+      type:String,
+      default: 'https://organicthemes.com/demo/profile/files/2012/12/profile_img.png'
+    } 
 }, {
     timestamps: true,
     toJSON: {

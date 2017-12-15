@@ -22,7 +22,10 @@ export class HouseInvitationsComponent implements OnInit {
 
   ngOnInit() {
     this.houseService.userInvitations().subscribe(
-      (invitations) => this.invitations = invitations
+      (invitations) => {
+        console.log(invitations);
+        this.invitations = invitations;
+      }
     )
   }
 

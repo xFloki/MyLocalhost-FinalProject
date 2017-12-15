@@ -1,10 +1,14 @@
-<div class="" *ngIf="owner">
-  <a [routerLink]="['/task-assign']">Assign</a>
-  <a [routerLink]="['/task']">MyTasks</a>
+<div class="owner" *ngIf="owner">
+  <h4>Assign new Tasks</h4>
+  <br>
+  <a [routerLink]="['/task-assign']"><img width="100px" src="/assets/add.jpg" alt=""></a>
 </div>
+<!-- <a [routerLink]="['/task-assign']">Assign</a>
+<a [routerLink]="['/task']">MyTasks</a> -->
 <br>
   <ul>
     <li *ngFor="let t of weekTasks">
       {{t.task.name}}
+      <img src="125x125.jpg" class="img-circle" alt="Circular Image">
     </li>
   </ul>

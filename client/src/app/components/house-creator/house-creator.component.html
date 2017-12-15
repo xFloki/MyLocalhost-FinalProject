@@ -1,18 +1,18 @@
 <form (ngSubmit)="createHouse(house)" #loginForm="ngForm">
-  <fieldset>
+  <br><br>
     <legend>Create New House</legend>
-    <div>
-      <label for="country">Country: </label>
-      <input type="text" name="country" [(ngModel)]="house.country" required>
+    <div class="house-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Country" name="country" [(ngModel)]="house.country">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Location" name="location" [(ngModel)]="house.location">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Street" name="street" [(ngModel)]="house.street">
+      </mat-form-field><br><br>
+      <button mat-raised-button color="primary">Add</button>
     </div>
-    <div>
-      <label for="location">Location: </label>
-      <input type="text" name="location" [(ngModel)]="house.location" required>
-    </div>
-    <div>
-      <label for="street">Street: </label>
-      <input type="text" name="street" [(ngModel)]="house.street" required>
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Add</button>
-  </fieldset>
+
+
 </form>

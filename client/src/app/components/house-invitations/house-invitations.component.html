@@ -1,9 +1,17 @@
-<p>
-  house-invitations works!
-</p>
-
 <div class="" *ngFor="let inv of invitations">
-  <p>{{inv.house.owner.username}}</p>
-  <p>{{inv.house.street}}</p>
-  <button (click)="acceptInvitation(inv.house._id)" name="button">Accept</button>
+  <mat-card class="invitation">
+    <mat-card-header>
+      <mat-card-title>{{inv.house.owner.username}}</mat-card-title>
+      <mat-card-subtitle>{{inv.house.street}}
+        <div class="" style="margin-right:5px;">
+          <button (click)="acceptInvitation(inv.house._id)" mat-raised-button color="accent">
+            Accept
+          </button>
+          <button mat-raised-button color="warn">Cancel</button>
+        </div>
+
+      </mat-card-subtitle>
+
+    </mat-card-header>
+  </mat-card>
 </div>

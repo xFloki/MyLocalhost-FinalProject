@@ -12,34 +12,71 @@
         </div>
         <div>
           To be Payed
-          <p>{{toBePayed}}€</p>
+          <p style="color:green">{{toBePayed}}€</p>
         </div>
       </div>
     </div>
 </nav>
 
-<div class="">
+
+<div class="" style="padding-bottom:30px;">
+  <button style="width: 100%; margin-top:10px; margin-bottom: 10px;"
+  mat-raised-button color="accent" (click)="addNewShopList()">
+    To Pay
+  </button>
     <div class="to-pay">
       <div class="" *ngFor="let debt of activeDebts">
-        <p>{{debt.quantity}} €</p>
-        <p>{{debt.creditor.username}}</p>
-        <p>{{debt.createdAt}}</p>
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Quantity: {{debt.quantity}} €</mat-card-title>
+            <mat-card-subtitle>To: {{debt.creditor.username}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{debt.reason}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+
       </div>
       <div class="old-debts" *ngFor="let debt of oldDebts">
-        <p>{{debt.quantity}} €</p>
-        <p>{{debt.creditor.username}}</p>
-        <p>{{debt.createdAt}}</p>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Quantity: {{debt.quantity}} €</mat-card-title>
+            <mat-card-subtitle>To: {{debt.creditor.username}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{debt.reason}}
+            </p>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
+    <button style="width: 100%; margin-top:10px; margin-bottom: 10px;"
+    mat-raised-button color="accent" (click)="addNewShopList()">
+      To Be Payed
+    </button>
     <div class="to-be-payed">
+
       <div class="" *ngFor="let debt of toBePayedDebts">
         <div class="" *ngIf="debt.status">
-          <p>{{debt.quantity}} €</p>
-          <p>{{debt.debtor.username}}</p>
-          <p>{{debt.createdAt}}</p>
-          <a class="btn btn-default">
-            <span (click)="confirmPaid(debt)" class="glyphicon glyphicon-ok-circle"></span>
-          </a>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Quantity: {{debt.quantity}} €</mat-card-title>
+              <mat-card-subtitle>To: {{debt.debtor.username}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{debt.reason}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+               <button (click)="confirmPaid(debt)" mat-raised-button color="accent">Confirm Payment</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </div>
